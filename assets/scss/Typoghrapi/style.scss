@@ -1,0 +1,300 @@
+@import '../scss/bootstrap';
+
+$primary-color:#F4AF23;
+$secondary-color: #4CC9F3;
+$content-color: #000000;
+
+$font-weight:("regular": 400,
+    "medium": 500,
+    "semi-bold": 600,
+    "bold": 700,
+
+);
+
+@font-face {
+    font-family: Verdana, Geneva;
+    src: url(../webfonts/Verdana.ttf);
+    font-weight: "regular";
+}
+@font-face {
+    font-family: Tahoma, sans-serif;
+    src: url(../webfonts/TahomaBold.ttf);
+    font-weight: "bold";
+}
+
+@mixin breakpoint-up($arg){
+    @media screen and (min-width:($arg)){
+        @content;
+    }
+
+}
+@mixin primaryBtn{
+            font-family: Verdana, Geneva;
+            font-weight: "regular";
+            text-decoration: none;
+            color: #fff;
+            background: rgb(244,175,35);
+background: linear-gradient(0deg, rgba(244,175,35,1) 9%, rgba(166,115,11,1) 45%);
+            border: 2px solid $primary-color;
+            padding: 2px 9px 2px 9px;
+            display: inline-block;
+            border-radius: 7px;
+            font-size: 17px;
+
+
+}
+@mixin secondaryBtn {
+            font-family: Verdana, Geneva;
+            font-weight: "regular";
+            text-decoration: none;
+            color: #fff;
+            background: rgb(34,178,186);
+background: linear-gradient(0deg, rgba(34,178,186,1) 9%, rgba(6,106,111,1) 70%);
+            border: 2px solid $secondary-color;
+            padding: 2px 9px 2px 9px;
+            display: inline-block;
+            border-radius: 7px;
+            font-size: 17px;
+}
+
+body{
+    background-color: #fff;
+    color: $content-color;
+    font-size: 16px;
+    line-height: 1.5;
+    text-transform: initial;
+    font-family: Verdana, Geneva;
+
+    @include breakpoint-up(992px){
+        font-size: 18px;
+    }
+    
+}
+
+img{
+    width: 100%;
+    height: auto;
+}
+a{
+    color: $secondary-color;
+    text-decoration: underline;
+    &:hover, &:active{
+        color: $secondary-color;
+    }
+}
+strong,b,.b{
+    font-weight: 700;
+}
+a, .a, .btn, button, input[type="submit"]{
+    transition: 0.4s all;
+}
+p, ol, address, ul{
+    &:not(:last-child){
+        margin-bottom: 7px;
+
+        @include breakpoint-up(576px){
+                margin-bottom: 15px;            
+        }
+    }
+   
+}
+li{
+    &:not(:last-child){
+        margin-bottom: 6px;
+        margin-right: 16px;
+    }
+}
+
+h1, .h1{
+    font-size: 30px;
+    margin-top: 0!important;
+    @include breakpoint-up(992px){
+        font-size: 32px;
+    }
+
+} 
+
+h2, .h2{
+    font-size: 27px;  
+    @include breakpoint-up(992px){
+        font-size: 30px;
+    }
+ 
+
+}
+
+h3, .h3{  
+    font-size: 26px;
+    @include breakpoint-up(992px){
+        font-size: 28px;
+    }
+  
+} 
+
+h4, .h4{  
+    font-size: 24px;
+    @include breakpoint-up(992px){
+        font-size: 26px;
+    }
+  
+} 
+h5, .h5{  
+    font-size: 22px;
+    @include breakpoint-up(992px){
+        font-size: 24px;
+    }
+
+} 
+h6, .h6{  
+    font-size: 20px;
+    @include breakpoint-up(992px){
+        font-size: 22px;
+    }
+
+
+} 
+h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6{
+    font-weight: map-get($font-weight, "bold");
+    font-family: Tahoma, sans-serif;
+    margin-bottom: 12px;
+    margin-top: 20px;
+
+    
+
+}
+
+table{
+    @extend .table, .table-bordered, .table-responsive;
+    th{
+        background-color: $content-color;
+        color: #fff;
+        font-weight: 700;
+        @include breakpoint-up(1900px){
+            font-size: 22px;
+        }
+    }
+    td{
+        @include breakpoint-up(1900px){
+            font-size: 22px;
+        }
+    }
+
+}
+
+input{
+    &[type="text"], &[type="search"], &[type="number"], &[type="email"], &[type="password"] {
+         width: 100%;
+         height: 25px;
+        border: 1px solid $content-color;
+        padding: 4px 10px;
+        margin-bottom: 9px;
+        outline: none;        
+        &:hover{
+            border: 2px solid #4CC9F3;
+        }
+        @include breakpoint-up(576px){
+            height: 30px;
+        
+        }
+        @include breakpoint-up(768px){
+            height: 35px;
+        
+        }
+        @include breakpoint-up(992px){
+            height: 40px;
+        
+        }
+        @include breakpoint-up(1900px){
+            margin-bottom: 20px;
+            height: 43px;       
+        }
+        
+    }
+    &[type="checkbox"], &[type="radio"]{
+        display: inline-block;
+
+    }
+    
+}
+label{
+    padding: 0px 8px;
+    @include breakpoint-up(1900px){
+        font-size: 22px;
+    }
+}
+
+textarea {
+        width: 100%;
+        min-height: 75px;
+        max-height: 75px;
+        outline: none;
+        &:hover{
+            border: 2px solid #4CC9F3;
+        
+        }
+        @include breakpoint-up(576px){
+            min-height: 90px;
+            max-height: 90px;
+        
+        }
+        @include breakpoint-up(768px){
+            min-height: 120px;
+            max-height: 120px;
+        
+        }
+        @include breakpoint-up(992px){
+            min-height: 150px;
+            max-height: 150px;
+        
+        }
+        @include breakpoint-up(1300px){
+            min-height: 175px;
+            max-height: 175px;
+        
+        }
+
+    }
+    
+select{
+    width: 100%;
+    border: 1px solid $content-color;
+    height: 25px;
+    margin-bottom: 5px;
+    @include breakpoint-up(576px){
+        height: 30px;
+    
+    }
+    @include breakpoint-up(768px){
+        height: 35px;
+    
+    }
+    @include breakpoint-up(992px){
+        height: 40px;
+    
+    }
+    @include breakpoint-up(1900px){
+        margin-bottom: 20px;
+        height: 43px;       
+    }
+}
+
+.videoRs{
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%;
+
+    iframe{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+     }
+}
+figcaption {
+    display: inline-block;
+    font-size: 12px;
+}
+
+// --========================--TYPOGRAPHI END--=====================--

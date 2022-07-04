@@ -1,0 +1,387 @@
+@import '../scss/bootstrap';
+$primary-color:#FAE8E0;
+$second-color : #D8A7B1;
+$card-color: #B6E2D3;
+
+$content-color: #666666;
+$btn-border1: #EF7C8E;
+$btn-border2: #486038;
+$inputbgcolor: #757575;
+
+$font-weight:("regular": 400, "medium": 500, "semi-bold": 600, "bold": 700, );
+@font-face {
+    font-family: 'SegoeUI';
+    src: url(../webfonts/SegoeUI.ttf);
+    font-weight: map-get($font-weight,"regular");
+}
+@font-face {
+    font-family: 'Ubuntu';
+    src: url(../webfonts/Ubuntu-Bold.ttf);    
+    font-weight: map-get($font-weight,"semi-bold");
+}
+@font-face {
+    font-family: 'seguisb';
+    src: url(../webfonts/seguisb.ttf);
+    font-weight: map-get($font-weight,"semi-bold");
+}
+
+
+@mixin breakpoint-up($arg) {
+    @media screen and (min-width: ($arg)) {
+        @content;
+    }
+}
+
+@mixin primaryBtn {
+    text-decoration: none;
+    color: #fff;
+    background: rgb(239,124,142);
+    background: linear-gradient(180deg, rgba(239,124,142,1) 48%, rgba(221,204,227,1) 93%);
+    border: 1px solid $btn-border1;
+    padding: 2px 9px 2px 9px;
+    display: inline-block;
+    border-radius: 7px;
+    font-size: 17px;
+    cursor: pointer;
+    box-shadow: 1px 1px 1px 1px #c9c4c4;
+    &:hover{
+        background: rgb(221,204,227);
+        background: linear-gradient(180deg, rgba(221,204,227,1) 33%, rgba(239,124,142,1) 92%);
+        transition: 0.9s all ease;
+    }
+}
+@mixin secondaryBtn {
+    text-decoration: none;
+    color: #fff;
+    background: rgb(221,215,215);
+    background: linear-gradient(0deg, rgba(221,215,215,1) 16%, rgba(96,115,82,1) 75%, rgba(72,96,56,1) 100%, rgba(209,199,199,1) 100%);
+    border: 1px solid $btn-border2;
+    padding: 2px 9px 2px 9px;
+    display: inline-block;
+    border-radius: 7px;
+    font-size: 17px;
+    cursor: pointer;
+    box-shadow: 1px 1px 1px 1px #c9c4c4;
+    &:hover{
+        background: rgb(72,96,56);
+        background: linear-gradient(0deg, rgba(72,96,56,1) 0%, rgba(96,115,82,1) 39%, rgba(221,215,215,1) 99%);
+        transition: 0.9s all ease;
+    }
+}
+
+
+body {
+    background-color: #666666;
+    color: $content-color;
+    font-size: 16px;
+    line-height: 1.5;
+    text-transform: initial;
+    font-family: 'SegoeUI';
+    font-weight: map-get($font-weight,"regular");
+    @include breakpoint-up(992px) {
+        font-size: 18px;
+    }
+}
+
+img {
+    width: 100%;
+    height: auto;
+}
+
+a {
+    color: $content-color;
+    text-decoration: underline;
+    &:hover,
+    &:active {
+        color: $content-color;
+    }
+}
+.btn-success{
+    @include primaryBtn;
+}
+.btn-danger{
+    @include secondaryBtn;
+}
+strong,
+b,
+.b {
+    font-weight: 700;
+}
+
+a,
+.a,
+.btn,
+button,
+input[type="submit"] {
+    transition: 0.4s all;
+}
+
+p,
+ol,
+address,
+ul {
+    &:not(:last-child) {
+        margin-bottom: 7px;
+        @include breakpoint-up(576px) {
+            margin-bottom: 15px;
+        }
+    }
+}
+
+li {
+    &:not(:last-child) {
+        margin-bottom: 6px;
+        margin-right: 16px;
+    }
+}
+
+h1,
+.h1 {
+    font-size: 30px;
+    margin-top: 0!important;
+    @include breakpoint-up(992px) {
+        font-size: 32px;
+    }
+}
+
+h2,
+.h2 {
+    font-size: 27px;
+    @include breakpoint-up(992px) {
+        font-size: 30px;
+    }
+}
+
+h3,
+.h3 {
+    font-size: 26px;
+    @include breakpoint-up(992px) {
+        font-size: 28px;
+    }
+}
+
+h4,
+.h4 {
+    font-size: 24px;
+    @include breakpoint-up(992px) {
+        font-size: 26px;
+    }
+}
+
+h5,
+.h5 {
+    font-size: 22px;
+    @include breakpoint-up(992px) {
+        font-size: 24px;
+    }
+}
+
+h6,
+.h6 {
+    font-size: 20px;
+    @include breakpoint-up(992px) {
+        font-size: 22px;
+    }
+}
+
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4,
+h5,
+.h5,
+h6,
+.h6 {
+    font-family: 'seguisb';
+    font-weight: map-get($font-weight,"semi-bold");
+    margin-bottom: 12px;
+    margin-top: 20px;
+}
+
+table {
+    @extend .table,
+    .table-bordered,
+    .table-responsive;
+    th {
+        background-color: $content-color;
+        color: #fff;
+        font-weight: 700;
+        @include breakpoint-up(1900px) {
+            font-size: 22px;
+        }
+    }
+    td {
+        @include breakpoint-up(1900px) {
+            font-size: 22px;
+        }
+    }
+}
+
+input {
+    &[type="text"],
+    &[type="year"],
+    &[type="month"],
+    &[type="name"],
+    &[type="search"],
+    &[type="number"],
+    &[type="email"],
+    &[type="date"],
+    &[type="password"] {
+        width: 100%;
+        height: 31px;
+        border: 1px solid $btn-border1;
+        padding: 4px 10px;
+        margin-bottom: 9px;
+        outline: none;
+        font-size: 14px;
+        &:hover {
+            border: 1px solid #4CC9F3;
+        }
+        @include breakpoint-up(576px) {
+            height: 30px;
+        }
+        @include breakpoint-up(768px) {
+            height: 35px;
+        }
+        @include breakpoint-up(992px) {
+            height: 40px;
+        }
+        @include breakpoint-up(1900px) {
+            margin-bottom: 20px;
+            height: 43px;
+        }
+    }
+    &[type="checkbox"],
+    &[type="radio"] {
+        display: inline-block;
+    }
+}
+label {
+    padding: 0px 8px;
+    @include breakpoint-up(1900px) {
+        font-size: 22px;
+    }
+}
+
+textarea {
+    width: 100%;
+    min-height: 75px;
+    max-height: 75px;
+    outline: none;
+    padding: 0px 10px;
+    &:hover {
+        border: 2px solid #4CC9F3;
+    }
+    @include breakpoint-up(576px) {
+        min-height: 90px;
+        max-height: 90px;
+    }
+    @include breakpoint-up(768px) {
+        min-height: 120px;
+        max-height: 120px;
+    }
+    @include breakpoint-up(992px) {
+        min-height: 150px;
+        max-height: 150px;
+    }
+    @include breakpoint-up(1300px) {
+        min-height: 175px;
+        max-height: 175px;
+    }
+}
+
+select {
+    width: 100%;
+    border: 1px solid $content-color;
+    height: 25px;
+    margin-bottom: 5px;
+    @include breakpoint-up(576px) {
+        height: 30px;
+    }
+    @include breakpoint-up(768px) {
+        height: 35px;
+    }
+    @include breakpoint-up(992px) {
+        height: 40px;
+    }
+    @include breakpoint-up(1900px) {
+        margin-bottom: 20px;
+        height: 43px;
+    }
+}
+
+.videoRs {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%;
+    margin-top: 15px;
+    margin-bottom: 16px;
+    iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+figcaption {
+    display: inline-block;
+    font-size: 12px;
+}
+
+// --========================--TYPOGRAPHI END--=====================--
+
+
+.scrol_btn{
+    font-size: 33px;
+    position: fixed;
+    bottom: 80px;
+    right: 15px;
+    z-index: 9999999;
+    color: $second-color;
+    cursor: pointer;
+    display: none;
+    &:hover{
+        color: red;
+    
+    }
+    @include breakpoint-up(992px){
+        font-size: 40px;
+    }
+}
+
+// --=================--SCROOL BTN END--==================--
+
+
+@include breakpoint-up(1370px){
+    .container{
+        max-width: 1370px;
+        margin: 0 auto;
+    }
+}
+
+.today{
+    height: 31px;
+}
+.today_head{
+    .input{
+        height: 31px;
+    }
+    button{
+        background-color: $btn-border2;
+        padding: 8px 16px;
+        transition: all 0.4s;
+        border-radius: 7px;
+        &:hover{
+            border-color: $btn-border1;
+        transition: all 0.4s;
+        color: #fff;
+        }
+    }
+}
